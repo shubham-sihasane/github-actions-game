@@ -7,11 +7,17 @@ on:
       debug:
         type: boolean
         default: false
+env:
+  WORKFLOW_LEVEL_VAR: Workflow_level
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL_VAR: Job_level
     steps:
       - name: Display Information
+        env:
+          STEP_LEVEL_VAR: Step_level
         run: |
           echo "Event Name: ${{ github.Event}}"
           echo "Ref: ${{ github.ref_name}}"
@@ -20,5 +26,9 @@ jobs:
           echo "Workflow: ${{ github.workflow}}"
           echo "Run ID: ${{ github.run_id}}"
           echo "Run Number: ${{ github.run_number}}"
+          echo "${{ env.STEP_LEVEL_VAR}}"
       - name: Retrieve Variable
-        run: echo ${{ vars.MY_VAR}}
+        run: |
+          echo ${{ vars.MY_VAR}}
+          echo ${{ env.WORKFLOW_LEVEL_VAR}}
+          echo ${{ env.JOB_LEVEL_VAR}}
