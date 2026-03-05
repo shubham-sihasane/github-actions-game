@@ -1,6 +1,10 @@
 name: Second Workflow
 on:
-  - push
+  # push
+  pull_request:
+    types:
+      - opened
+      - closed
 jobs:
   echo:
     runs-on: ubuntu-latest
