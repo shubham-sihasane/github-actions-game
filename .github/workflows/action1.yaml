@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Helllo
-        run: echo "Hello, World!"
+        run: echo -e "Hello, World!\nWelcome to the world of DevOps"
   echo-goodbye:
     runs-on: ubuntu-latest
     steps:
-      - name: Failed step
+      # - name: Failed step
+      #   run: |
+      #     echo "I will fail" 
+      #     exit 1
+      - name: Success Step
         run: |
-          echo "I will fail" 
-          exit 1
+          echo "I waill succeed"
+          exit 0
       - name: Say goodbye
         run: "Goodbye!"
