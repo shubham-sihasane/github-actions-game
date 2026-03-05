@@ -1,15 +1,19 @@
 name: First Workflow
-on: push
+on:
+  - push
+  - workflow_dispatch
 jobs:
-  first-job:
+  echo-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Greetings
+      - name: Say Helllo
+        run: echo "Hello, World!"
+  echo-goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failed step
         run: |
-          echo "Hello World!"
-          echo "Welcome to the world of DevOps"
-  second-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Closure
-        run: echo "Good byeee!"
+          echo "I will fail" 
+          exit 1
+      - name: Say goodbye
+        run: "Goodbye!"
