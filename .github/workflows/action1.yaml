@@ -1,0 +1,15 @@
+name: First Workflow
+on: push
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greetings
+        run: |
+          echo "Hello World!"
+          echo "Welcome to the world of DevOps"
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Closure
+        run: echo "Good byeee!"
