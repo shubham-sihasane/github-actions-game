@@ -5,7 +5,9 @@ on:
   #   types:
   #     - opened
   #     - closed
-  workflow_dispatch:
+  # workflow_dispatch:
+  schedule:
+    - cron: "* * * * *"
 jobs:
   echo:
     runs-on: ubuntu-latest
