@@ -1,5 +1,4 @@
 name: Second Workflow
-
 on:
   # push
   # pull_request:
@@ -8,8 +7,7 @@ on:
   #     - closed
   # workflow_dispatch:
   schedule:
-    - cron: "* * * * *"
-
+    - cron: "*/5 * * * *"
 jobs:
   echo:
     runs-on: ubuntu-latest
