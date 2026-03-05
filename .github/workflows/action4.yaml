@@ -1,0 +1,14 @@
+name: GitHub Actions
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+      - name: Printing Folder
+        run: |
+          pwd
+          ls
+          tree .
+        
