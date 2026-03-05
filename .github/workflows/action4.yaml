@@ -6,9 +6,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
-      - name: Printing Folder
-        run: |
-          pwd
-          ls
-          tree .
-        
+      # - name: Printing Folder
+      #   run: |
+      #     pwd
+      #     ls
+      #     tree .
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version: "20.x"
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: react-app
