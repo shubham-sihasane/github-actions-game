@@ -17,7 +17,7 @@ on:
         default: v3
 
 jobs:
-  echo:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Build
