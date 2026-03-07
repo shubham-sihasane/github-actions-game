@@ -27,3 +27,24 @@ jobs:
           OVERWRITTEN: "I have been overwritten at the step level"
         run: |
           echo "Step env var: ${{ env.OVERWRITTEN}}"
+  echo2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Variables
+        # run: echo "Organization Variable ${{ vars.ORG_VAR}}"
+        run: |
+          echo "Repository Variable: ${{ vars.REPO_VAR}}"
+  echo-prod:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Print Prod Variable
+        run: |
+          echo "Environment Variables: ${{ vars.TARGET_VAR}}"
+  echo-staging:
+    runs-on: ubuntu-latest
+    environment: Staging
+    steps:
+      - name: Print Staging Variable
+        run: |
+          echo "Environment Variables: ${{ vars.TARGET_VAR}}"
