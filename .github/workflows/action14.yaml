@@ -6,6 +6,7 @@ jobs:
     name: ${{ matrix.os}}-${{matrix.node-version}}
     runs-on: ${{ matrix.os}}
     strategy:
+      fail-fast: true
       matrix:
         os:
           - ubuntu-latest
@@ -14,6 +15,17 @@ jobs:
           - 18.x
           - 20.x
           - 21.x
+        include:
+          - os: ubuntu-latest
+            node-version: 16.x
+          - os: ubuntu-latest
+            node-version: 21.x
+            tag: experimental
     steps:
       - name: Setup Node - ${{ matrix.node-version}}
         run: echo "Running tests on ${{ matrix.os}} and NodeJs ${{ matrix.node-version}}"
+      - name: Fail if experimental
+        if: matrix.tag == 'experimental'
+        run: exit 1
+      - name: Upload results
+        run: echo "Upload results"
