@@ -25,6 +25,7 @@ on:
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
+    environment: Staging
     steps:
       - name: Deploy to Staging
         run: echo "Deploying to Staging"
@@ -36,6 +37,7 @@ jobs:
         run: echo "End to End testing completed."
   deploy-prod:
     needs: [e2e-tests]
+    environment: Production
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Production
