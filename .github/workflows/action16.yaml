@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 env:
   build-artifact-key: app-${{ github.sha}}
+  test-report-key: test-coverage-${{github.sha}}
 jobs:
   test-build:
     runs-on: ubuntu-latest
@@ -24,7 +25,7 @@ jobs:
       - name: Upload a Test Results
         uses: actions/upload-artifact@v7.0.0
         with:
-          name: test-coverage
+          name: ${{env.test-report-key}}
           path: react-app/coverage
       - name: Build Code
         run: npm run build
