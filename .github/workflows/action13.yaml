@@ -1,7 +1,3 @@
-# See 13-caching/README.md for more information
-# about how to use caching in workflows, best practices,
-# and limitations of caching in GitHub Actions.
-
 name: Caching
 
 on:
