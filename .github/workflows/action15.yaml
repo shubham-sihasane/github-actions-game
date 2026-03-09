@@ -35,10 +35,24 @@ jobs:
     steps:
       - name: End to End testing
         run: echo "End to End testing completed."
-  deploy-prod:
+  deploy-prod-frontend:
     needs: [e2e-tests]
     environment: Production
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Production
-        run: echo "Deploying to Production"
+        run: echo "Deploying to Production Frontend"
+  deploy-prod-backend1:
+    needs: [e2e-tests]
+    environment: Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Production
+        run: echo "Deploying to Production Backend 1"
+  deploy-prod-backend2:
+    needs: [e2e-tests]
+    environment: Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Production
+        run: echo "Deploying to Production Backend 2"
