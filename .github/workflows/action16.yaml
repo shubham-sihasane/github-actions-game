@@ -27,6 +27,7 @@ jobs:
           name: app-artifact
           path: build
   deploy:
+    needs: [test-build]
     runs-on: ubuntu-latest
     defaults:
       run:
