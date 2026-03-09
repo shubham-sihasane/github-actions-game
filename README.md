@@ -1,2 +1,3 @@
 A sample github repository for all the actions and examples for GitHub Actions Course.
+
 A journey of automation.
